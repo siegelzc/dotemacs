@@ -13,19 +13,14 @@
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/saves")))
 
-;; Catppuccin (https://github.com/catppuccin/emacs)
-(load-theme 'catppuccin :no-confirm)
-(setq catppuccin-flavor 'mocha) ;; 'latte, 'frappe, 'macchiato, or 'mocha
-(catppuccin-reload)
-(defun clear-background ()
-  (unless (display-graphic-p (selected-frame))
-    (set-face-background 'default "unspecified-bg" (selected-frame))))
-(add-hook 'window-setup-hook 'clear-background)
-
 ;; Mepla
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+(package-install 'catppuccin-theme)
+(package-install 'markdown-mode)
+(package-install 'smex)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -38,3 +33,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Catppuccin (https://github.com/catppuccin/emacs)
+(load-theme 'catppuccin :no-confirm)
+(setq catppuccin-flavor 'mocha) ;; 'latte, 'frappe, 'macchiato, or 'mocha
+(catppuccin-reload)
+(defun clear-background ()
+  (unless (display-graphic-p (selected-frame))
+    (set-face-background 'default "unspecified-bg" (selected-frame))))
+(add-hook 'window-setup-hook 'clear-background)
