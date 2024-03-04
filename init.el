@@ -4,6 +4,8 @@
 (tool-bar-mode 0)
 (ido-mode 1)
 
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
 (setq text-scale-mode-step 1.1)
 (set-frame-font "-*-Menlo-regular-normal-normal-*-15-*-*-*-m-0-iso10646-1" nil t)
 
